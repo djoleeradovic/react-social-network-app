@@ -1,0 +1,27 @@
+.post-form {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 80%;
+  margin: 1rem auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.post-form textarea {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--color-white);
+  resize: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  outline: 2px solid var(--color-secondary);
+}
+
+@media screen and (max-width: 600px) {
+  .post-form {
+    width: 100%;
+  }
+}

@@ -1,0 +1,61 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.3);
+  height: fit-content;
+  width: 80%;
+  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  color: var(--color-white);
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.post-content {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.post-author {
+  display: flex;
+
+  color: var(--color-primary);
+  padding: 0rem 1rem;
+}
+
+.post-likes {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem 0rem;
+  font-size: 1.3rem;
+}
+
+.post-likes span {
+  margin: 0 0.5rem;
+}
+
+.post-btn {
+  cursor: pointer;
+}
+
+.post-btn.like {
+  color: var(--color-success);
+}
+
+.post-btn.dislike {
+  color: var(--color-danger);
+}
+
+@media screen and (max-width: 600px) {
+  .post {
+    width: 100%;
+  }
+}
