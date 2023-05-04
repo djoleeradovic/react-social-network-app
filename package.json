@@ -1,6 +1,6 @@
 {
+  "homepage": "http://djoleeradovic.github.io/react-social-media-app/form",
   "name": "react-social-media-app",
-  "homepage": "http://djoleeradovic.github.io/form",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
