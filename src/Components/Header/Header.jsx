@@ -73,12 +73,12 @@ const Header = () => {
     e.preventDefault();
     deleteDataByID("users", userCookie);
     deleteUserPosts(userCookie);
-    navigate("/");
+    navigate("/react-social-media-app");
     document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
 
   const logOut = () => {
-    navigate("/");
+    navigate("/react-social-media-app");
     document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
 
