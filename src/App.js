@@ -7,8 +7,8 @@ const App = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/react-social-media-app" element={<AuthPage />} />
-        <Route path="/home" element={<Homepage />} />
+        <Route path="/react-social-media-app/" element={<AuthPage />} />
+        <Route path="/home/" element={<Homepage />} />
       </Routes>
     </HashRouter>
   );
