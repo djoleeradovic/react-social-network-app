@@ -1,16 +1,16 @@
 import React from "react";
 import "./index.css";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthPage, Homepage } from "./Pages";
 
 const App = () => {
   return (
-    <HashRouter>
+    <BrowserRouter basename="/react-social-network-app">
       <Routes>
-        <Route path="/react-social-media-app" element={<AuthPage />} />
+        <Route path="/" element={<AuthPage />} />
         <Route path="/home" element={<Homepage />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
