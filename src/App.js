@@ -7,7 +7,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AuthPage />} />
+        <Route path="/react-social-media-app" element={<AuthPage />} />
         <Route path="/home" element={<Homepage />} />
       </Routes>
     </BrowserRouter>
