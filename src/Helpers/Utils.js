@@ -57,7 +57,7 @@ export const checkForCookie = (navigator, cookie) => {
   if (cookie) {
     navigator("/home");
   } else {
-    navigator("/form");
+    navigator("/");
   }
 };
 
