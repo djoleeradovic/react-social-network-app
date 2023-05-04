@@ -1,11 +1,13 @@
 import { React, useState, useEffect, useRef } from "react";
 import "./header.css";
+import Logo from "../../assets/logo.png";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import {
   getDataByID,
+  getAllData,
   setDataToID,
   deleteDataByID,
   passwordError,
@@ -35,7 +37,7 @@ const Header = () => {
     setPassword(data.password);
   };
 
-  const editUser = (e, username, password) => {
+  const editUser = async (e, username, password) => {
     e.preventDefault();
     if (usernameMessage.length > 0 || passwordMessage.length > 0) {
       seteditErrorMessage("Enter a valid data!");
@@ -48,7 +50,19 @@ const Header = () => {
       setUsername(username.current.value);
       setPassword(password.current.value);
 
-      setDataToID("users", userCookie, editedUser);
+      await setDataToID("users", userCookie, editedUser);
+
+      const data = await getAllData("posts");
+
+      const new_author = {
+        author: username.current.value,
+      };
+
+      await data.forEach((post) => {
+        if (post.user_id === userCookie) {
+          setDataToID("posts", post.id, new_author);
+        }
+      });
 
       setShowModal(false);
       setShowSettingsMenu(false);
@@ -78,7 +92,7 @@ const Header = () => {
     <>
       <header>
         <div className="logo">
-          <h1>Social Network</h1>
+          <img src={Logo} alt="logo" />
         </div>
         <div className="profile">
           <div className="profile-photo">

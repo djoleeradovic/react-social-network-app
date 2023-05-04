@@ -9,21 +9,25 @@ const NewPost = ({ setPosts }) => {
 
   const addPost = async (e, content) => {
     e.preventDefault();
-    const data = await getDataByID("users", cookies.user);
-    const author = await data.username;
+    if (content.current.value.length === 0) {
+      alert("Cannot add empty post!");
+    } else {
+      const data = await getDataByID("users", cookies.user);
+      const author = await data.username;
 
-    const postData = {
-      user_id: cookies.user,
-      content: content.current.value,
-      likes: 0,
-      author: author,
-    };
+      const postData = {
+        user_id: cookies.user,
+        content: content.current.value,
+        likes: 0,
+        author: author,
+      };
 
-    await addNewdata("posts", postData);
+      await addNewdata("posts", postData);
 
-    content.current.value = "";
-    const updatedData = await getAllData("posts");
-    setPosts(updatedData);
+      content.current.value = "";
+      const updatedData = await getAllData("posts");
+      setPosts(updatedData);
+    }
   };
   return (
     <form className="post-form">

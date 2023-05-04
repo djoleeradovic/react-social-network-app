@@ -43,8 +43,8 @@ export const addNewdata = async (path, data) => {
   });
 };
 
-export const setDataToID = (path, id, data) => {
-  fetch(`${API_KEY}/${path}/${id}`, {
+export const setDataToID = async (path, id, data) => {
+  await fetch(`${API_KEY}/${path}/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

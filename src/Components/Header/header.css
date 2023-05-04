@@ -10,10 +10,11 @@ header {
 }
 
 .logo {
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-  padding-left: 3rem;
+  padding: 3rem;
+}
+
+.logo img {
+  width: 40px;
 }
 
 .profile {

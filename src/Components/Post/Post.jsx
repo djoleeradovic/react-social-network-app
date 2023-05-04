@@ -37,7 +37,6 @@ const Post = ({ id, user_id, content, likes, author, setPosts }) => {
     await deleteDataByID("posts", id);
 
     const updatedData = await getAllData("posts");
-    console.log(updatedData);
     setPosts(updatedData);
   };
 
