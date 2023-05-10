@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-social-network-app/static/css/main.3b046ce6.css",
+    "main.js": "/react-social-network-app/static/js/main.8fbb8379.js",
+    "index.html": "/react-social-network-app/index.html",
+    "main.3b046ce6.css.map": "/react-social-network-app/static/css/main.3b046ce6.css.map",
+    "main.8fbb8379.js.map": "/react-social-network-app/static/js/main.8fbb8379.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b046ce6.css",
+    "static/js/main.8fbb8379.js"
+  ]
+}
