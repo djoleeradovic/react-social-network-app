@@ -6,11 +6,18 @@ import { getAllData } from "../../Helpers/Utils";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+  const [postLikesDB, setPostLikesDB] = useState([]);
 
   useEffect(() => {
     const getPosts = async () => {
       const posts = await getAllData("posts");
       setPosts(posts);
+
+      const postLikes = posts.reduce((acc, post) => {
+        acc[post.id] = post.likes;
+        return acc;
+      }, {});
+      setPostLikesDB(postLikes);
     };
     getPosts();
   }, []);
@@ -29,6 +36,8 @@ const Posts = () => {
             likes={post.likes}
             author={post.author}
             setPosts={setPosts}
+            setPostLikesDB={setPostLikesDB}
+            postLikesDB={postLikesDB}
           />
         ))}
     </div>

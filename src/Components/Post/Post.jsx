@@ -9,7 +9,16 @@ import {
   getAllData,
 } from "../../Helpers/Utils";
 
-const Post = ({ id, user_id, content, likes, author, setPosts }) => {
+const Post = ({
+  id,
+  user_id,
+  content,
+  likes,
+  author,
+  setPosts,
+  postLikesDB,
+  setPostLikesDB,
+}) => {
   const [isLiked, setIsLiked] = useState([]);
   const [cookies] = useCookies(["user"]);
 
@@ -41,7 +50,10 @@ const Post = ({ id, user_id, content, likes, author, setPosts }) => {
     const postLikes = {
       likes: likes + 1,
     };
-    await setDataToID("posts", id, postLikes);
+    const newPostLikesDB = { ...postLikesDB };
+    newPostLikesDB[postID] = postLikesDB[postID] + 1;
+    setPostLikesDB(newPostLikesDB);
+    await setDataToID("posts", postID, postLikes);
   };
 
   const setDislike = async (e, postID) => {
@@ -61,7 +73,10 @@ const Post = ({ id, user_id, content, likes, author, setPosts }) => {
     const postLikes = {
       likes: likes - 1,
     };
-    await setDataToID("posts", id, postLikes);
+    const newPostLikesDB = { ...postLikesDB };
+    newPostLikesDB[postID] = postLikesDB[postID] - 1;
+    setPostLikesDB(newPostLikesDB);
+    await setDataToID("posts", postID, postLikes);
   };
 
   const deletePost = async (e, id) => {
@@ -93,7 +108,7 @@ const Post = ({ id, user_id, content, likes, author, setPosts }) => {
               }}
             />
           )}
-          <span>{likes}</span>
+          <span>{postLikesDB[id]}</span>
           {currentUser ? (
             <button className="btn danger" onClick={(e) => deletePost(e, id)}>
               Delete
